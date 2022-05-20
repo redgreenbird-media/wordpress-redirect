@@ -9,7 +9,7 @@ use redgreenbird\SettingsManager;
  * Plugin Name:       Redirector
  * Plugin URI:        https://github.com/redgreenbird-media/wordpress-redirect
  * Description:       Redirect non logged in user to specific page.
- * Version:           1.0
+ * Version:           1.0.1
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            redgreenbird GmbH
