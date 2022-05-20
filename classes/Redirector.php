@@ -23,8 +23,14 @@ class Redirector
         if ($GLOBALS['pagenow'] === 'wp-login.php')
             return;
 
+        // Get link from settings
+        $link = get_option('redirector_settings')['redirect_link'];
+
+        if ($link == null)
+            return;
+
         // Redirect to specific page
-        wp_redirect('https://redgreenbird.com/');
+        wp_redirect($link);
         exit;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace RGB;
+namespace redgreenbird;
 
 use redgreenbird\Redirector;
 use redgreenbird\SettingsManager;
@@ -8,7 +8,7 @@ use redgreenbird\SettingsManager;
 /**
  * Plugin Name:       Redirector
  * Plugin URI:        https://github.com/redgreenbird-media/wordpress-redirect
- * Description:       Description
+ * Description:       Redirect non logged in user to specific page.
  * Version:           1.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -23,13 +23,13 @@ use redgreenbird\SettingsManager;
 
 
 // Define File Path
-if (!\defined('PLUGIN_PATH'))
-    define('PLUGIN_PATH', dirname(__FILE__) . "/");
-if (!\defined('PLUGIN_HTTP_PATH'))
-    define('PLUGIN_HTTP_PATH', plugin_dir_url(__FILE__));
+if (!\defined('PLUGIN_PATH_REDIRECTOR'))
+    define('PLUGIN_PATH_REDIRECTOR', dirname(__FILE__) . "/");
+if (!\defined('PLUGIN_HTTP_PATH_REDIRECTOR'))
+    define('PLUGIN_HTTP_PATH_REDIRECTOR', plugin_dir_url(__FILE__));
 
 // Import all classes
-foreach (glob(PLUGIN_PATH . "classes/*.php") as $filename) {
+foreach (glob(PLUGIN_PATH_REDIRECTOR . "classes/*.php") as $filename) {
     include($filename);
 }
 

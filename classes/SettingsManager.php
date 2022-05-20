@@ -28,13 +28,11 @@ class SettingsManager
         );
     }
 
-    /**
-     * Options page callback
-     */
+    // Options page callback
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option('my_option_name');
+        $this->options = get_option('redirector_settings');
 ?>
         <div class="wrap">
             <h1>Redirector</h1>
@@ -55,7 +53,7 @@ class SettingsManager
     {
         register_setting(
             'my_option_group', // Option group
-            'my_option_name', // Option name
+            'redirector_settings', // Option name
             array($this, 'sanitize') // Sanitize
         );
 
@@ -69,7 +67,7 @@ class SettingsManager
         add_settings_field(
             'redirect_link', // ID
             'Page to redirect', // Title 
-            array($this, 'id_number_callback'), // Callback
+            array($this, 'title_callback'), // Callback
             'my-setting-admin', // Page
             'setting_section_id' // Section           
         );
@@ -99,22 +97,11 @@ class SettingsManager
     /** 
      * Get the settings option array and print one of its values
      */
-    public function id_number_callback()
-    {
-        printf(
-            '<input type="text" id="id_number" name="my_option_name[id_number]" value="%s" />',
-            isset($this->options['id_number']) ? esc_attr($this->options['id_number']) : ''
-        );
-    }
-
-    /** 
-     * Get the settings option array and print one of its values
-     */
     public function title_callback()
     {
         printf(
-            '<input type="text" id="title" name="my_option_name[title]" value="%s" />',
-            isset($this->options['title']) ? esc_attr($this->options['title']) : ''
+            '<input type="text" id="redirect_link" name="redirector_settings[redirect_link]" value="%s" />',
+            isset($this->options['redirect_link']) ? esc_attr($this->options['redirect_link']) : ''
         );
     }
 }
