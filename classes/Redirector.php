@@ -24,13 +24,18 @@ class Redirector
             return;
 
         // Get link from settings
-        $link = get_option('redirector_settings')['redirect_link'];
+        $redirect_link = get_option('redirector_settings')['redirect_link'];
 
-        if ($link == null)
+        if ($redirect_link == null)
+            return;
+
+        // Get current page
+        $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        if ($actual_link == $redirect_link)
             return;
 
         // Redirect to specific page
-        wp_redirect($link);
+        wp_redirect($redirect_link);
         exit;
     }
 }
