@@ -30,7 +30,7 @@ class Redirector
             return;
 
         // Get current page
-        echo $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
         if ($actual_link == $redirect_link)
             return;
